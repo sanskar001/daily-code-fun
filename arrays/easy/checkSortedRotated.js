@@ -29,7 +29,7 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 // Time complexity - O(N) and Aux Space complexity - O(1)
 
 var check = function (nums) {
-  let count = 0;
+  let count = 0;   // voilation count
   let n = nums.length;
 
   for (let i = 0; i < n; i++) {
