@@ -39,7 +39,7 @@ Output: 2
 
 //////////////////////////////////////////////////////////
 
-// SOLUTION-2 --- USING HASHING --- TIME => O(N) & SPACE => O(N)
+// SOLUTION-3 --- --- TIME => O(N) & SPACE => O(1)
 
 var majorityElement = function (nums) {
   // Size of the given array
