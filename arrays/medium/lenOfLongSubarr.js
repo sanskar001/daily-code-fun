@@ -73,7 +73,7 @@ There is no such sub-array with sum 6.
 //////////////////////////////////////////////////////////////////////////////
 
 // TIME => O(N) & AUX SPACE => O(1)
-// USING TWO POINTER APPROACH
+// USING TWO POINTER APPROACH  ----- only for positive integer
 
 function lenOfLongSubarr(arr, n, k) {
   let maxLen = 0;
