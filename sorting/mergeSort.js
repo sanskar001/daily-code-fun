@@ -38,6 +38,8 @@ function merge(arr1, arr2) {
   return result;
 }
 
+// MERGE SORT 
+
 function mergeSort(arr) {
   if (arr.length == 1) {
     return arr;
