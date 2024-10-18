@@ -80,6 +80,8 @@ TIME COMPLEXITY = O(N LOGN) AND AUX SPACE COMPLEXITY = O(LOGN)
 
 TIME COMPLEXITY = O(N^2) AND AUX SPACE COMPLEXITY = O(LOGN)
 
+These time complexity is depends on pivot selection.
+
 */
 
 // PIVOT HELPER function
