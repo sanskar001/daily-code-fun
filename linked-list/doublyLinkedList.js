@@ -197,6 +197,25 @@ class DoublyLinkedList {
         targetNode.value = newVal;
         return true;
     }
+
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+
+        let prev = null;
+        let next = null;
+
+        for(let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            node.prev = next;
+            prev = node;
+            node = next;
+        }
+
+        return this;
+    }
     
     // traverse - To traverse and display list
     traverse() {
@@ -216,5 +235,5 @@ const list = new DoublyLinkedList();
 
 list.push(10);
 list.push(20);
-list.push(30);
-list.push(40);
+// list.push(30);
+// list.push(40);
