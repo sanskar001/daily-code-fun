@@ -39,25 +39,45 @@ Output: [0]
 
 // SOLUTION-2 USING IN-PLACE APPROACH OR TWO POINTER APPROACH --- TIME => O(N) & AUX SPACE => O(1)
 
-var moveZeroes = function (nums) {
-  let i = 0;
-  let n = nums.length;
-  let zeroCount = 0;
+// var moveZeroes = function (nums) {
+//   let i = 0;
+//   let n = nums.length;
+//   let zeroCount = 0;
 
-  for (let j = 0; j < n; j++) {
-    if (nums[j] === 0) {
-      zeroCount++;
+//   for (let j = 0; j < n; j++) {
+//     if (nums[j] === 0) {
+//       zeroCount++;
+//     } else {
+//       nums[i] = nums[j];
+//       i++;
+//     }
+//   }
+
+//   for (let z = 0; z < zeroCount; z++) {
+//     nums[z + i] = 0;
+//   }
+
+//   console.log(nums);
+// };
+
+// OPTIMAL SOLUTION --- TIME COMPLEXITY => O(N) & AUX SPACE COMPLEXITY => O(1)
+
+var moveZeroes = function (nums) {
+  const size = nums.length;
+  let i = 0;
+  let j = 0;
+
+  while (i < size && j < size) {
+    if (nums[i] !== 0) {
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+      i++;
+      j++;
     } else {
-      nums[i] = nums[j];
       i++;
     }
   }
 
-  for (let z = 0; z < zeroCount; z++) {
-    nums[z + i] = 0;
-  }
-
-  console.log(nums);
+  return nums;
 };
 
 // TESTING
