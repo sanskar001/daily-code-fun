@@ -69,7 +69,7 @@ const pivot = function (nums) {
   let left = 0;
   let right = n - 1;
 
-  if (nums[left] <= nums[right]) return 0;
+  if (nums[left] < nums[right]) return 0;
 
   while (left <= right) {
     const mid = Math.floor((left + right) / 2);
