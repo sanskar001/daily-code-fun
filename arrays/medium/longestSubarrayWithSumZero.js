@@ -57,7 +57,7 @@ const longestSubarrayWithSumZero = function (nums) {
 
 // ==========================================================
 
-// SOLUTION - TIME COMPLEXITY => O(N^2) & AUX SPACE COMPLEXITY => O(N)
+// SOLUTION - TIME COMPLEXITY => O(N) & AUX SPACE COMPLEXITY => O(N)
 
 const longestSubarrayWithSumZero = function (nums) {
   const n = nums.length;
