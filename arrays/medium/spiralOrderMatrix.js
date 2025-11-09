@@ -16,53 +16,42 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 // SOLUTION --- TIME => O(N * M) & AUX SPACE => O(N)
 
 var spiralOrder = function (matrix) {
-  // Define ans array to store the result.
-  let result = [];
+  const result = [];
+  const rows = matrix.length;
+  const cols = matrix[0].length;
 
-  // Determine the number of rows and columns
-  let rows = matrix.length; // no. of rows
-  let cols = matrix[0].length; // no. of columns
-
-  // Initialize the pointers reqd for traversal.
-  let top = 0;
-  let left = 0;
-  let bottom = rows - 1;
-  let right = cols - 1;
-
-  // Loop until all elements are not traversed.
-  while (top <= bottom && left <= right) {
-    // For moving left to right
-    for (let i = left; i <= right; i++) {
-      result.push(matrix[top][i]);
+  function moveSpiral(startRow, endRow, startCol, endCol) {
+    // Traverse start row
+    for (let i = startCol; i < endCol + 1; i++) {
+      result.push(matrix[startRow][i]);
     }
 
-    top++;
-
-    // For moving top to bottom.
-    for (let i = top; i <= bottom; i++) {
-      result.push(matrix[i][right]);
+    // Traverse end col
+    for (let i = startRow + 1; i < endRow + 1; i++) {
+      result.push(matrix[i][endCol]);
     }
 
-    right--;
-
-    // For moving right to left.
-    if (top <= bottom) {
-      for (let i = right; i >= left; i--) {
-        result.push(matrix[bottom][i]);
+    // Traverse end row in reverse
+    if (endRow > startRow) {
+      for (let i = endCol - 1; i >= startCol; i--) {
+        result.push(matrix[endRow][i]);
       }
-
-      bottom--;
     }
 
-    // For moving bottom to top.
-    if (left <= right) {
-      for (let i = bottom; i >= top; i--) {
-        result.push(matrix[i][left]);
+    // Traverse start col in reverse
+    if (startCol < endCol) {
+      for (let i = endRow - 1; i >= startRow + 1; i--) {
+        result.push(matrix[i][startCol]);
       }
+    }
 
-      left++;
+    if (result.length < rows * cols) {
+      moveSpiral(startRow + 1, endRow - 1, startCol + 1, endCol - 1);
     }
   }
+
+  moveSpiral(0, rows - 1, 0, cols - 1);
+
   return result;
 };
 
